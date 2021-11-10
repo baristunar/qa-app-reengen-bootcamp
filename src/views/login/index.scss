@@ -1,0 +1,17 @@
+.login {
+    @apply bg-gray-700 flex justify-center items-center;
+    height: calc(100vh - 68px);
+
+    &__container {
+        @apply bg-white px-5 py-10;
+
+        input {
+            @apply block mt-5;
+        }
+
+        button {
+            @apply mt-5 ml-auto block;
+        }
+    }
+
+}

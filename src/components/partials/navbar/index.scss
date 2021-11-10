@@ -1,0 +1,22 @@
+.nav {
+    @apply text-white bg-indigo-600 py-3 px-10 flex items-center justify-between;
+
+    &__menu {
+    
+        &-link {
+            &-active {
+                @apply text-yellow-300;
+            }
+        }
+        &-link:not(:first-child){
+            @apply ml-5;
+        }
+    }
+
+  &__account {
+  button {
+      @apply mt-3;
+  }
+  }
+
+}
