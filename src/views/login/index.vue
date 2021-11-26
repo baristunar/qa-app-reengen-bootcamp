@@ -2,8 +2,16 @@
   <div class="login">
     <div class="login__container">
       <form v-if="!isRegistered" @submit.prevent="loginHandler">
-        <input v-model="formBody.email" type="email" placeholder="e-posta adresiniz" />
-        <input  v-model="formBody.password" type="text" placeholder="Şifreniz..." />
+        <input
+          v-model="formBody.email"
+          type="email"
+          placeholder="e-posta adresiniz"
+        />
+        <input
+          v-model="formBody.password"
+          type="text"
+          placeholder="Şifreniz..."
+        />
         <button type="submit">Giriş yap</button>
         <button type="button" @click="isRegistered = true">
           Yeni üyelik oluştur
@@ -58,9 +66,14 @@ export default {
 
       if (!isValidate) return;
 
-      UserService.login(this.formBody.email, this.formBody.password)
-        .then((resp) => console.log(resp))
-        .catch();
+      this.$store.commit("loader/setLoading", true);
+      setTimeout(() => {
+        this.$store
+          .dispatch("user/loginHandler", this.formBody)
+          .then((resp) => this.$router.push({ name: "homepage" }))
+          .catch((err) => console.log("object :>> ", err))
+          .finally(() => this.$store.commit("loader/setLoading", false));
+      }, 1000);
     },
     registerHandler() {
       const isValidate = this.validateHandler(
@@ -70,9 +83,14 @@ export default {
       );
 
       if (!isValidate) return;
-      UserService.register(this.formBody)
-        .then((resp) => console.log('resp :>> ', resp))
-        .catch((e) => console.log('e :>> ', e));
+
+      this.$store.commit("loader/setLoading", true);
+      setTimeout(() => {
+        UserService.register(this.formBody)
+          .then((resp) => console.log("resp :>> ", resp))
+          .catch((e) => console.log("e :>> ", e))
+          .finally(() => this.$store.commit("loader/setLoading", false));
+      }, 1000);
     },
     validateHandler(...params) {
       return params.every((el) => el);

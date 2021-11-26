@@ -1,0 +1,28 @@
+.overlay {
+    @apply fixed top-0 left-0 right-0 bottom-0 bg-black opacity-30 z-10 overflow-hidden;
+  }
+  .modal {
+    @apply fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center overflow-hidden;
+  }
+  
+
+  .loader {
+    @apply z-20 bg-indigo-600  p-3 border  rounded-full;
+  
+    animation: loading infinite 1.5s ease-in-out;
+  }
+  
+  @keyframes loading {
+    0% {
+      color: red;
+    }
+  
+    50% {
+      color: white;
+    }
+  
+    100% {
+      color: orange;
+    }
+  }
+  

@@ -1,3 +1,5 @@
 export default {
-    user : "/users"
+    user: "/users",
+    categories: "/categories",
+    questions: "/questions"
 }

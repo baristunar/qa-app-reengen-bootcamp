@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <Navbar/>
-    <router-view/>
+    <Loader v-if="isLoading" />
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Navbar from './components/partials/navbar/index.vue'
+import Navbar from "./components/partials/navbar/index.vue";
+import Loader from "@/components/UI/loader";
+import { mapGetters } from 'vuex';
 export default {
-  components:{
-    Navbar
+  components: {
+    Navbar,
+    Loader,
+  },
+  computed:{
+    ...mapGetters({
+      isLoading:"loader/_isLoading"
+    })
   }
-}
+};
 </script>
 
 <style lang="scss">

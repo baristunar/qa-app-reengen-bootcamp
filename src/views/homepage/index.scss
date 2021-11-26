@@ -1,0 +1,84 @@
+.homepage {
+  @apply px-5 flex;
+}
+
+.categories {
+    @apply w-1/5 border-2 rounded-md px-3 py-5 my-5 bg-gray-300  max-h-[60vh] flex flex-col justify-center;
+  
+    .new-question-btn {
+      @apply bg-indigo-600 rounded-md px-5 py-3 w-full block text-center text-white;
+  
+      &:hover {
+        @apply bg-indigo-700;
+      }
+    }
+  
+    &__menu {
+      @apply my-3 px-1 rounded-md;
+  
+      li {
+        @apply border;
+  
+        button {
+          @apply bg-white w-full text-left px-5 py-1 flex items-center justify-between;
+  
+          &:hover {
+            @apply bg-indigo-600;
+  
+            span {
+              @apply text-yellow-300;
+            }
+          }
+  
+          svg {
+            @apply max-h-4 max-w-min;
+          }
+        }
+      }
+    }
+  }
+  
+  .questions {
+    @apply w-9/12 border-2 rounded-md px-3 py-5 my-5 ml-5 flex flex-col justify-center items-center;
+  
+    .card {
+      @apply mt-5 flex flex-col justify-around;
+  
+      &__header {
+        @apply flex justify-between items-center;
+  
+        &-title {
+          @apply font-bold text-lg text-yellow-300;
+        }
+  
+        small {
+          @apply text-yellow-300 font-bold;
+        }
+      }
+      &__body {
+        &-desc {
+          @apply mt-5 text-white text-base truncate overflow-ellipsis max-w-xl;
+        }
+      }
+      &__footer {
+        @apply mt-5 flex items-center justify-around text-white text-lg;
+  
+        &-likes {
+          @apply flex items-center;
+  
+          svg {
+            @apply mr-2;
+          }
+        }
+      }
+    }
+  
+    svg {
+      @apply w-4 h-4 cursor-pointer;
+  
+      &:hover {
+        @apply text-red-600;
+      }
+    }
+  }
+  
